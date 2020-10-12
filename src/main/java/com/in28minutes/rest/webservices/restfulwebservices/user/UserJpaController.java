@@ -105,6 +105,7 @@ public class UserJpaController {
 	}	
 }
 
+
 //@Valid para validar el contenido de la información que se pasa en el request y que se mapea en los Bean de Java. (Se ubica en a API de validación JavaX)
 //       las espedificaciones que debe cumplir la información se definen en los ENTITY, DTO, POJO, ETC...
 //		 Por ejemplo: @Size(min=2, message="El nombre debe contener al menos dos caracteres.")	
