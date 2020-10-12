@@ -1,18 +1,42 @@
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Todos los detalles acerca de los user. ")
+@Entity
 public class User {
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Size(min = 2, message = "El nombre debe contener al menos dos caracteres.")
+	@ApiModelProperty(notes = "El nombre debe contener al menos dos caracteres.")
 	private String name;
 	
 	@Past(message="La fecha de nacimiento no puede ser una fecha futura.")
+	@ApiModelProperty(notes = "La fecha de nacimiento debe ser una fecha en el pasado.")
 	private Date birthDate;
+	
+	/**
+	 * Con esta anotación se indica que un User está relacionado con muchos Post 
+	 * y que la columna por la que tiene que hacer el mapeo es "user" misma que se encuentra en el entity Post.java 
+	 */
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
+
+	public User() {
+	}	
 	
 	public User(Integer id, String name, Date birthDate) {
 		super();
@@ -45,6 +69,17 @@ public class User {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 	
-	
+	@Override
+	public String toString() {
+		return String.format("User [id=%s, name=%s, birthDate=%s]", id, name, birthDate);
+	}
 }

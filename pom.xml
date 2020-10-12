@@ -21,10 +21,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!-- Para agregar enlaces a nuestros recursos -->
@@ -38,21 +34,49 @@
 			<artifactId>jackson-dataformat-xml</artifactId> 
 		</dependency>
 		<!-- Para el manejo de la documentacion de los servicios web mediante swagger -->
-		<dependency>
+		<dependency> 
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger2</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>3.0.0</version>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.9.2</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
-		</dependency> -->
+		</dependency>
+		<!-- Para el manejo del monitoreo de los web services -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-browser</artifactId>
+		</dependency>
+		<!-- Para el manejo básico de seguridad -->
+		<!-- Se comenta por temas de comodidad, para no estar autenticandonos al momento de realizar nuestras pruebas.
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency> 
+		-->
+		<!-- Para el manejo de la base de datos en memoria H2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<!-- <scope>runtime</scope> -->
+		</dependency>				
+		<!-- Para el manejo de JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,11 +93,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
